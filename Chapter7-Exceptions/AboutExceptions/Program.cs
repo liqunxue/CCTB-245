@@ -13,9 +13,9 @@ namespace AboutExceptions
             try
             {
                 Program myApp = new Program();
-                Cylinder first = myApp.PromptForCylinder();
+                Cylinder first = myApp.PromptForCylinder(3);
                 myApp.Display(first);
-                Cylinder second = myApp.PromptForCylinder();
+                Cylinder second = myApp.PromptForCylinder(1);
                 myApp.Display(second);
 
 
@@ -70,5 +70,28 @@ namespace AboutExceptions
             return new Cylinder(r, h);
         }
 
+        private Cylinder PromptForCylinder(int retries)
+        {
+            Cylinder result = null;
+            do
+            {
+                // try (attempt) to get a valid cylinder from the user
+                try
+                {
+                    result = PromptForCylinder(); // call the other method....
+                }
+                catch (Exception ex) // any and all exceptions
+                {
+                    Console.WriteLine("Error - " + ex.Message);
+                    Console.WriteLine("You have " + retries + "more attempts left...");
+                    retries--; // substract 1 from the retries....
+                }
+
+            } while (result == null && retries > 0);
+            // Very last chance......
+            if (result == null)
+                result = PromptForCylinder();
+            return result;
+        }
     }
 }
