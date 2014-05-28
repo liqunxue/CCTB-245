@@ -36,5 +36,34 @@ namespace CardGame.GameElements
                 counter--;
             }
         }
+
+        public void Deal(int cards, params Player[] players)
+        {
+            // A little bit of validation......
+            if (players == null || players.Length == 0)
+                throw new ArgumentException("Not enought players to deal cards to...");
+            foreach (var person in players)
+                if (person == null)
+                    throw new ArgumentException("Cannot deal to a 'null' player.");
+            if (cards <= 0)
+                throw new ArgumentOutOfRangeException("Cannot deal" + cards + " cards");
+            if (cards * players.Length > Cards.Count)
+                throw new Exception("Not enough cards. Cannot deal " + cards + " to " + players.Length + " players.");
+
+            while (cards > 0)
+            {
+                foreach (var player in players)
+                {
+                    // pull from top of deck.....
+
+                    Card card = Cards[0];
+                    player.Add(card);
+                    Cards.RemoveAt(0);
+                }
+                cards--; // oops, forgot to decrement how many times I deal cards
+            }
+            
+            
+        }
     }
 }

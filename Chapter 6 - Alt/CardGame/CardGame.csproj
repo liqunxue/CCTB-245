@@ -48,6 +48,7 @@
     <Compile Include="AdHoc-Demo\StackDemo.cs" />
     <Compile Include="GameElements\Card.cs" />
     <Compile Include="GameElements\DeckOfCards.cs" />
+    <Compile Include="GameElements\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
