@@ -44,7 +44,15 @@ namespace CardGame.GameEngine
             // TODO: Find some way to say who won.....
         }
 
+        private bool TakeTurn(IFishPlayer person)
+        {
+            throw new NotImplementedException();
+        }
 
+        private void RemovePairs(Player person)
+        {
+            throw new NotImplementedException();
+        }
 
         private void SetUp()
         {
