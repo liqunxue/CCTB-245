@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace CardGame.GameElements
 {
     // Extra data types that relate to the Card class
-    enum Suit { HEARTS, DIAMONDS, CLUBS, SPADES }
-    enum CardFace
+    public enum Suit { HEARTS, DIAMONDS, CLUBS, SPADES }
+    public enum CardFace
     {
         Ace = 1,
         Deuce,

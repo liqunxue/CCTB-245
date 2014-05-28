@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CardGame.GameElements
 {
-    class Player
+    public class Player
     {
-        private List<Card> Hand { get; set; }
+        protected List<Card> Hand { get; set; }
         public int Count { get { return Hand.Count; } }
 
         public Player()
